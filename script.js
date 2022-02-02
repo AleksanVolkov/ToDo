@@ -26,6 +26,9 @@ const btnTask = document.querySelector('.btn'),
                <div>
                ${task.input}
                </div>
+               <div>
+               ${task.input}
+               </div>
                
                `       
                
