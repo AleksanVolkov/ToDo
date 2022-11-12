@@ -1,19 +1,18 @@
 .back_all{
     height: 950px;
-    background-color:#8ef3f3;
+    background-color:#d1d1d1;
 }
 
 
 .title{
     text-align: center;
     margin: 0 25px  auto;
-    font-family: 'Comforter', cursive;
-    font-size: 125px;
+    font-family: 'Comforter Brush', cursive;
+    font-size: 100px;
     font-weight: 900;
-    color: #48480f;
+    color: #552929;
     padding-top: 40px;
     
-    /*font-family: 'Fira Sans', sans-serif;*/
 }
 .border{
     width: 650px;
@@ -27,7 +26,7 @@
     justify-content: center;
 
 }
-input{
+#input{
     width: 410px;
     height: 48px;
     margin-right: 40px;
@@ -52,3 +51,80 @@ input{
     border: 1px solid #a7d0bd;
     box-shadow:-2px 1px 8px  #420404;
 }
+.task_box{
+    display: flex;
+    margin: 25px auto 10px;
+    height: 50px;
+    align-items:center;
+    justify-content: center;
+    width: 700px;
+    background-color: #f3e1d1;
+    border-radius:10px;
+    border: 2px solid white;
+    /* box-shadow: 0px 0px 9px 1px #558978; */
+}
+
+.task_descrp{
+    min-width: 455px;
+    font-family: 'Raleway', sans-serif;
+    padding: 12px;
+    font-size: 22px;
+    font-weight: 300;
+   
+}
+
+.del_block{
+    display: flex;
+    
+}
+
+#task_input{
+   margin-top: 23px;
+   margin-right: 15px;
+}
+.del_p{
+    cursor: pointer;
+    margin-top: 13px;
+    margin-left: 15px;
+    padding: 8px;
+    background-color:crimson;
+    color:ghostwhite;
+    border-radius: 5px;
+    font-family: 'Fira Sans', sans-serif;
+
+}
+
+.check
+{
+       
+        background-color:#1a8247;
+        width: 26px;
+        height: 25px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        border-radius:5px;
+        padding: 2px;
+        font-family: 'Fira Sans', sans-serif;
+        margin-right: 15px;
+}
+.del
+{
+       
+        background-color:#f12f2f;
+        width: 26px;
+        height: 25px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        border-radius:5px;
+        padding: 2px;
+        font-family: 'Fira Sans', sans-serif;
+}
+
+
+
