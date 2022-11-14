@@ -4,9 +4,9 @@
  const  contener = document.querySelector('.contener'),
         input    = document.querySelector('#input'),
         btn_task = document.querySelector('.btn_task'),
-        check= document.querySelector('.check'),
+        check= document.querySelector('.check');
         
-        task_descrp =document.querySelector('.task_descrp');
+        
 
 
 
@@ -25,7 +25,7 @@
           
             const div = document.createElement('div');
             div.classList.add('task_box')
-
+           
 
           
             div.innerHTML=`
@@ -51,7 +51,7 @@
                 if(target && target.classList.contains('check')){
                     check.forEach((item)=>{
                      if(item=target){
-                         item.parentElement.style.boxShadow="0px 0px 9px 1px #558978";
+                         item.parentElement.style.boxShadow="0px 0px 9px 1px #ffff";
                      }
                     })
                     
@@ -77,11 +77,6 @@
 
 
 
-
-
-
-
-       
 
 
 
