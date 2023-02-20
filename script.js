@@ -14,15 +14,17 @@
     
         let inputData;
 
-        
+      
 
         
         input.addEventListener('input',()=>{
             
             inputData = input.value;
+           
+
             alert.style.visibility = 'hidden';
             alert.style.opacity = 0;
-            
+           
            
         })
 
@@ -41,7 +43,8 @@
              
                 <div class="check">	&#10004</div>
                 <div class="del">&#11198</div>
-                <div class="line"></div>
+                
+               
                 
                 
             
@@ -54,18 +57,36 @@
              check = document.querySelectorAll('.check'),
             box = document.querySelectorAll('.task_box');
 
+         
+           
+
+            
+            function highlight(td){
+              if(select){
+                select.classList.remove('done');
+              }else{
+                let select=td;
+                console.log(select)
+                select.classList.add('done');
+              }
+
+             
+             
+            }
+
+           
+  
+              
+         
             contener.addEventListener('click', (e)=>{
                 const target = e.target;
-               
-                if(target && target.classList.contains('check')){
-                    check.forEach((item)=>{
-                     if(item=target){
-                        
-                     }
-                    })
-                    
-                   }
+                
 
+                if(target && target.classList.contains('check')){
+                  highlight(target.parentElement)
+    
+                }
+               
               
 
                 if(target && target.classList.contains('del')){
@@ -85,10 +106,15 @@
             input.value='';
 
           }else{
+            
             alert.style.visibility = 'visible';
             alert.style.opacity = 1;
+
+            setTimeout(()=>{
+              alert.style.visibility = 'hidden';
+              alert.style.opacity = 0;
+            },2000)
             
-    
           }
 
         })
