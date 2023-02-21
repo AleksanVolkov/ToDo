@@ -4,7 +4,7 @@
  const  contener = document.querySelector('.contener'),
         input    = document.querySelector('#input'),
         btn_task = document.querySelector('.btn_task'),
-        check= document.querySelector('.check'),
+        
         alert= document.querySelector('.alert'),
         line= document.querySelector('.line');
         
@@ -54,25 +54,22 @@
               
             
             const del = document.querySelectorAll('.del'),
-             check = document.querySelectorAll('.check'),
+             
             box = document.querySelectorAll('.task_box');
 
          
-           
+            let check = document.querySelectorAll('.check');
 
             
-            function highlight(td){
-              if(select){
-                select.classList.remove('done');
-              }else{
-                let select=td;
-                console.log(select)
-                select.classList.add('done');
-              }
-
-             
-             
-            }
+           function done (target){
+           
+                  check.forEach(ch=>{
+                    if(ch==target){
+                      ch.classList.toggle('done');
+                  }
+                  })
+                  
+           }
 
            
   
@@ -83,15 +80,17 @@
                 
 
                 if(target && target.classList.contains('check')){
-                  highlight(target.parentElement)
+                  done(target);
+                  
     
                 }
                
               
 
                 if(target && target.classList.contains('del')){
+                 
                    del.forEach((item)=>{
-                    if(item=target){
+                    if(item==target){
                         item.parentElement.remove();
                     }
                    })
