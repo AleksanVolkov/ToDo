@@ -4,7 +4,7 @@ body{
 
 .back_all{
     height: 850px;
-    max-width: 580px;
+    max-width: 1000px;
     box-sizing: border-box;
     padding: 10px 25px;
     margin: 50px auto 0;
@@ -60,18 +60,7 @@ body{
     background-color:rgba(0, 0, 0, 0);
     color:#dadada;
 }
-/* .box{
-    position: absolute;
-    height: 400px;
-    width: 720px;
-    background-color:#FF8047;
-    border-radius:55px;
-    left: 625px;
-    top: 200px;
-    z-index: 1;
-    filter: blur(3px);
 
-} */
 .box1{
     position: absolute;
     height: 400px;
@@ -105,6 +94,11 @@ body{
     backdrop-filter: blur(15px);
    
 }
+button
+{
+    background-color:#212121;
+    border: none;
+}
 .btn_task:hover{
     font-family: 'Fira Sans', sans-serif;
     background-color: #6161613b;
@@ -115,15 +109,26 @@ body{
     box-shadow:0 0 8px 1px    #ffffff;
     transition: all 0.9s;
 }
+.task_field
 
-.task_box{
+{
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 0;
+    max-width: 950px;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns:400px 400px ;
+
+}
+.task_item{
     box-sizing: border-box;
-    padding: 5px 7px;
+    padding: 5px 12px;
     display: flex;
     margin: 25px auto 10px;
     height: 75px;
     align-items:center;
-    justify-content: center;
+    flex-grow: 3 ;
     width: 100%;
     background-color: #383838;
     border-radius:10px;
@@ -139,16 +144,40 @@ body{
 input.placeholder{
     color:#1a8247;
 }
-
-.task_descrp{
+.text_block{
+        display: flex;
+        flex-direction: column;
+}
+.task_title{
     width: 100%;
     font-family: 'Raleway', sans-serif;
-    padding: 12px;
-    font-size: 22px;
-    font-weight: 400;
+    padding: 2px;
+    font-size: 18px;
+    font-weight: 600;
     position: relative;
+    text-decoration: underline;
     
    
+}
+.task_descr
+{
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    padding: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+}
+.task_item_btn
+{
+    display: flex;
+}
+.done_box
+{
+    width: 10px;
+    border-radius:10px;
+    height: 100%;
+    background-color:#53a160;
 }
 
 .done{
@@ -193,7 +222,7 @@ input.placeholder{
         border-radius:5px;
         padding: 2px;
         font-family: 'Fira Sans', sans-serif;
-        margin-right: 10px;
+        margin-right: 5px;
         cursor: pointer;
 }
 .del
@@ -210,7 +239,7 @@ input.placeholder{
         border-radius:5px;
         padding: 2px;
         font-family: 'Fira Sans', sans-serif;
-        margin-right: 10px;
+        margin-right: 5px;
 }
 
 
