@@ -39,9 +39,9 @@
 
           
             div.innerHTML=`
-             <div class="task_descrp">${inputData}</div>
+             <div class="task_descrp" >${inputData}</div>
              
-                <div class="check">	&#10004</div>
+                <div class="check" data-action ='done'>	&#10004</div>
                 <div class="del">&#11198</div>
                 
                
@@ -53,25 +53,27 @@
             contener.append(div)
               
             
-            const del = document.querySelectorAll('.del'),
+            const del = document.querySelectorAll('.del');
              
-            box = document.querySelectorAll('.task_box');
+           
 
          
-            let check = document.querySelectorAll('.check');
+        
+            contener.addEventListener('click', done);
+           
 
+            function done(e){
+              const target = e.target;
+
+             if(target.dataset.action==='done'){
+              const parrent = target.closest('.task_box');
+              parrent.classList.toggle('done')
+             
+             
+             }
             
-           function done (target){
-           
-                  check.forEach(ch=>{
-                    if(ch==target){
-                      ch.classList.toggle('done');
-                  }
-                  })
-                  
-           }
-
-           
+              
+            }
   
               
          
@@ -79,11 +81,6 @@
                 const target = e.target;
                 
 
-                if(target && target.classList.contains('check')){
-                  done(target);
-                  
-    
-                }
                
               
 

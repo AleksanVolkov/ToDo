@@ -9,14 +9,30 @@ body{
     padding: 10px 25px;
     margin: 50px auto 0;
     background: #212121;
-    border-radius:20px;
+    border-radius:10px;
    position: relative;
    overflow: hidden;
    box-shadow: 0 0 21px 4px black;
+   overflow-y:scroll;
 
 
    
 }
+.back_all::-webkit-scrollbar {
+    width: 16px;               /* ширина всей полосы прокрутки */
+   
+  }
+  
+  .back_all::-webkit-scrollbar-track {
+    background: #212121;  
+    border-radius:20px;      /* цвет зоны отслеживания */
+  }
+  
+  .back_all::-webkit-scrollbar-thumb {
+    background-color: rgba(124, 124, 124, 0.527);    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+    border: 3px solid #212121;  /* отступ вокруг бегунка */
+  }
 
 
 .title{
@@ -121,7 +137,7 @@ body{
     padding: 5px 7px;
     display: flex;
     margin: 25px auto 10px;
-    height: 75px;
+    height: 45px;
     align-items:center;
     justify-content: center;
     width: 100%;
@@ -155,6 +171,8 @@ input.placeholder{
 
     border-bottom:1px solid #53a160;
     transition: all 0.7;
+
+    background-color: #4d97595b;
 }
 
 
@@ -238,4 +256,6 @@ input.placeholder{
    font-style: 21px;
     
 }
-
+.no{
+    background-color: #a15b53;
+}
