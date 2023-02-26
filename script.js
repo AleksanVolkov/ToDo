@@ -40,85 +40,9 @@
         function done(e){
           const target = e.target;
           
-<<<<<<< HEAD
           if(target.classList.contains('check')){
             const checkOk = target.closest('.task_item');
             checkOk.classList.toggle('done')
-=======
-            div.innerHTML=`
-             <div class="task_descrp" >${inputData}</div>
-             
-                <div class="check" data-action ='done'>	&#10004</div>
-                <div class="del">&#11198</div>
-                
-               
-                
-                
-            
-            
-            `
-            contener.append(div)
-              
-            
-            const del = document.querySelectorAll('.del');
-             
-           
-
-         
-        
-            contener.addEventListener('click', done);
-           
-
-            function done(e){
-              const target = e.target;
-
-             if(target.dataset.action==='done'){
-              const parrent = target.closest('.task_box');
-              parrent.classList.toggle('done')
-             
-             
-             }
-            
-              
-            }
-  
-              
-         
-            contener.addEventListener('click', (e)=>{
-                const target = e.target;
-                
-
-               
-              
-
-                if(target && target.classList.contains('del')){
-                 
-                   del.forEach((item)=>{
-                    if(item==target){
-                        item.parentElement.remove();
-                    }
-                   })
-                   
-                  }
-                
-
-            })
-           
-            input.placeholder="введите задние для записи";
-            inputData='';
-            input.value='';
-
-          }else{
-            
-            alert.style.visibility = 'visible';
-            alert.style.opacity = 1;
-
-            setTimeout(()=>{
-              alert.style.visibility = 'hidden';
-              alert.style.opacity = 0;
-            },2000)
-            
->>>>>>> c476400f9b2a85c1c91ea11d6769877105a2436a
           }
         }
 
