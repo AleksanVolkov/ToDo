@@ -2,6 +2,11 @@ body{
     background-color:#d1d1d1;
 }
 
+
+#form{
+    display: flex;
+    justify-content: center;
+}
 .back_all{
     height: 850px;
     max-width: 1000px;
@@ -124,11 +129,11 @@ button
 .task_item{
     box-sizing: border-box;
     padding: 5px 12px;
-    display: flex;
+    display: grid;
     margin: 25px auto 10px;
     height: 75px;
     align-items:center;
-    flex-grow: 3 ;
+    grid-template-columns: 300px 78px 10px;
     width: 100%;
     background-color: #383838;
     border-radius:10px;
@@ -177,13 +182,13 @@ input.placeholder{
     width: 10px;
     border-radius:10px;
     height: 100%;
-    background-color:#53a160;
+    background-color:#a7a7a7;
 }
 
 .done{
 
-    border-bottom:1px solid #53a160;
-    transition: all 0.7;
+    background-color:#1ed63c2e;
+   
 }
 
 
@@ -266,5 +271,8 @@ input.placeholder{
    font-weight: 300;
    font-style: 21px;
     
+}
+.none{
+    display: none;
 }
 

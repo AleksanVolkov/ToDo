@@ -3,80 +3,58 @@
 
  const  contener = document.querySelector('.contener'),
         input    = document.querySelector('#input'),
-        btn_task = document.querySelector('.btn_task'),
+        taskField = document.querySelector('.task_field'),
         alert= document.querySelector('.alert'),
-        del = document.querySelectorAll('.del'),
+        check=document.querySelector('.check'),
+        del=document.querySelectorAll('.del'),
         box = document.querySelectorAll('.task_box');
         
         
+        contener.addEventListener('submit', (e)=>{
+              e.preventDefault();  
+              const inputValue = input.value;
+              console.log(inputValue);
 
 
-    
-        let inputData;
+              const li = document.createElement('li');
+              li.classList.add('task_item');
+              li.innerHTML=`
+                  <div class="text_block">
+                        <div class="task_title" data-action="done">${inputValue}</div>
+                        <div class="task_descr" data-action="done">магазин работает до 22.00</div>
+                  </div>
+                  <div class="task_item_btn">
+                    <div class="check">	&#10004</div>
+                    <div class="del">&#11198</div>
+                  </div>
 
-      
+              `
+              taskField.append(li);
 
-        
-        input.addEventListener('input',()=>{
-            
-            inputData = input.value;
-           
 
-            alert.style.visibility = 'hidden';
-            alert.style.opacity = 0;
-           
-           
+
         })
+        contener.addEventListener('click', done);
+        contener.addEventListener('click', delite);
 
-
-     
-   
-       
-        btn_task.addEventListener('click', (e)=>{
-e.preventDefault();
-          if(inputData){}
-        });
-
-          function done (event){
-           
-            if(event.target.dataset.action==='done'){
-
-            }
-             
+        function done(e){
+          const target = e.target;
+          
+          if(target.classList.contains('check')){
+            const checkOk = target.closest('.task_item');
+            checkOk.classList.toggle('done')
           }
-           
-
-           contener.addEventListener('click', done);
-              
-         
-            contener.addEventListener('click', (e)=>{
-                const target = e.target;
-
-                if(target && target.classList.contains('del')){
-                 
-                        del.forEach((item)=>{
-                      if(item==target){
-                            item.parentElement.remove();
-                        }
-                      })
-                      
-                      }else{
-            
-                        alert.style.visibility = 'visible';
-                        alert.style.opacity = 1;
-
-                        setTimeout(()=>{
-                          alert.style.visibility = 'hidden';
-                          alert.style.opacity = 0;
-                        },2000)
-                      }
-                    })
-                
-
-               
+        }
 
 
+        function delite(e){
+          const target = e.target;
 
+          if(target.classList.contains('del')){
+              const delParrent = target.closest('.task_item');
+              delParrent.classList.add('none');
+          }
+        }
 
 
 
