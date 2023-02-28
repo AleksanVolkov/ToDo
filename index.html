@@ -7,22 +7,21 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="back_all">
 
-        <div class="box"></div>
-        <div class="box1"></div>
-        <div class="title">ToDoList</div>
+      
+        <div class="top">
+            <div class="title">todo</div>
+            <div class="btn">
+                <p class ="btn_open">+</p>
+            </div>
+        </div>
         
-        <div class="border"></div>
+        
         <div class="contener">
             <div class="input_box">
                 <div class="alert"><span>необходимо ввест задание</span></div>
@@ -32,17 +31,17 @@
 
                 <form id="form">
                     <div class="modal_input">
-                        <input id="inputTitle" type="text" placeholder="название задачи" >
-                        <input id="inputDesc" type="text" placeholder="комментарии" >
-                        <button><p>добавить</p></button>
+                        <label for="inputTitle">title</label>
+                        <input id="inputTitle" type="text" placeholder="add a title" >
+                        <label for="inputDesc">discription</label>
+                        <input id="inputDesc" type="text" placeholder="add a discription" >
+                        <button>add</button>
                     </div>
                     <div class="btn_box">
-                        <div class="btn">
-                            <p class ="btn_open">создать</p>
-                        </div>
-                        <div class="btn">
+                       
+                        <!-- <div class="btn">
                             <p class ="btn_del">удалить все</p>
-                        </div>
+                        </div> -->
                     </div>
 
                     

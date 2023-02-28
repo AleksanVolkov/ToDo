@@ -46,9 +46,10 @@
               inputTitle.value = '';
               inputDesc.value ='';
               button.addEventListener('click',()=>{
-                document.getElementById('inputTitle').placeholder ='название задачи';
-                document.getElementById('inputDesc').placeholder ='комментарии';
-
+                
+                document.getElementById('inputTitle').placeholder ='add a title';
+                document.getElementById('inputDesc').placeholder ='add a discription';
+                modalInput.style.display='none';
               })
              
 

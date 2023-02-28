@@ -1,9 +1,10 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 body{
-    background-color:#d1d1d1;
+    background-color:#e8e8e8;
 }
 
 
@@ -42,25 +43,27 @@ body{
     box-sizing: border-box;
     padding: 10px 25px;
     margin: 50px auto 0;
-    background: #212121;
+    background: #ffffff;
     border-radius:20px;
     position: relative;
     overflow-y: scroll;
-    box-shadow: 0 0 21px 4px black;
+    box-shadow: 0 0 21px 4px rgb(167, 167, 167);
 
 
    
 }
-
+.top
+{
+    display: flex;
+    justify-content: space-between;
+}
 
 .title{
     text-align: center;
-    margin: 0 25px  auto;
-    /* font-family: 'Comforter Brush', cursive; */
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 88px;
-    font-weight: 800;
-    color: #e3e3e3;
+    margin: 0 25px auto;
+    font-size: 40px;
+    font-weight: 500;
+    color: #595959;
     padding-top: 40px;
     position: relative;
     z-index: 3;
@@ -76,13 +79,21 @@ body{
     box-sizing: border-box;
     display: none;
     flex-direction: column;
-    border:1px solid #e3e3e3;
-    border-radius:10px;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
     position: absolute;
     right: -595px;
     z-index: 10;
     width: 550px;
-    background-color: #fafad5;
+    background-color: #ffffff;
+    transition: all 0.7s;
+    box-shadow: 0 0 40px 1px rgb(204 204 204 / 54%);
+}
+label
+{
+    font-size: 23px;
+    font-weight: 500;
+    color: #0000009e;
 }
 .input_box{
     margin: 25px auto;
@@ -104,51 +115,38 @@ input{
     color:#000000;
 }
 #inputTitle{
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 500;
-    font-size: 21px;
-}
-#inputDesc{
-    font-family: 'Fira Sans', sans-serif;
+    padding-top: 15px;
+    margin-left: 20px;
     font-weight: 400;
     font-size: 17px;
+    margin-bottom: 20px;
 }
-
-.box1{
-    position: absolute;
-    height: 400px;
-    width: 720px;
-    background-color:#343434;
-    border-radius:55px;
-    left: -625px;
-    top: 400px;
-    z-index: 1;
-    filter: blur(1px);
-
-}
-.btn_open{
-    font-family: 'Fira Sans', sans-serif;
+#inputDesc{
+    padding-top: 15px;
+    margin-left: 20px;
     font-weight: 400;
-    background-color: #35da50ca;
-    padding: 12px 25px;
-    width: 160px;
-    height: 50px;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+
+.btn_open{
+   
+    font-weight: 400;
+
+    color: #595959;
+  
     cursor: pointer;
     transition: all 0.9s;
     position: relative;
     z-index: 3;
-    font-size: 20px;
+    font-size: 60px;
     display: flex;
     justify-content: center;
-    align-items:center;
-    box-sizing: border-box;
-    backdrop-filter: blur(15px);
-   
+    align-items: center;
 }
 .btn_del{
-    font-family: 'Fira Sans', sans-serif;
+    
     font-weight: 400;
     background-color: #da4035ca;
     padding: 12px 25px;
@@ -170,31 +168,19 @@ input{
 }
 button
 {
-    background-color:#1ed63c2e;
+    background-color: #2a2525b0;
     border: none;
-    color:rgb(0, 0, 0);
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    font-size: 21px;
-    box-sizing:border-box;
+    color: rgb(255 255 255);
+    font-weight: 600;
+    font-size: 24px;
+    box-sizing: border-box;
     height: 40px;
     cursor: pointer;
+    width: 120px;
+    border-radius: 5px;
 }
-.btn_open:hover{
-    font-family: 'Fira Sans', sans-serif;
-    background-color: #23f446df;
-    
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    
-    box-shadow:0 0 8px 1px    #ffffff;
-    transition: all 0.9s;
-}
-.btn_open::before
-{
-    content:url(./images/pens.png);
-    margin-right: 5px;
-}
+
+
 .task_field
 
 {
@@ -204,7 +190,7 @@ button
     max-width: 950px;
     display: grid;
     justify-content: space-around;
-    grid-template-columns:400px 400px ;
+    grid-template-columns:450px 450px ;
     overflow-y: auto;
    
   
@@ -213,22 +199,20 @@ button
 
 .task_item{
     box-sizing: border-box;
-    padding: 5px 12px;
+    padding: 15px 20px;
     display: grid;
     margin: 25px auto 10px;
     min-height: 75px;
     align-items:center;
     grid-template-columns: 300px 78px 10px;
     width: 100%;
-    background-color: #383838;
+    background-color: #e3eabc7a;
     border-radius:10px;
     overflow-wrap: break-word;
     position: relative;
     z-index: 3;
-    color: #ffffff;
-    border-bottom:1px solid #383838;
-    transition: all 0.7;
-    
+    color: #595959;
+   
     
 }
 input.placeholder{
@@ -240,7 +224,7 @@ input.placeholder{
 }
 .task_title{
     width: 100%;
-    font-family: 'Raleway', sans-serif;
+   
     padding: 2px;
     font-size: 18px;
     font-weight: 600;
@@ -252,8 +236,8 @@ input.placeholder{
 .task_descr
 {
     width: 100%;
-    font-family: 'Raleway', sans-serif;
-    padding: 2px;
+    
+    padding: 10px;
     font-size: 14px;
     font-weight: 400;
     position: relative;
@@ -261,7 +245,11 @@ input.placeholder{
 .task_item_btn
 {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .done_box
 {
     width: 10px;
@@ -294,7 +282,7 @@ input.placeholder{
     background-color:crimson;
     color:#a15b53;
     border-radius: 5px;
-    font-family: 'Fira Sans', sans-serif;
+    
 
 }
 
@@ -311,7 +299,7 @@ input.placeholder{
         color: #53a160;
         border-radius:5px;
         padding: 2px;
-        font-family: 'Fira Sans', sans-serif;
+       
         margin-right: 5px;
         cursor: pointer;
 }
@@ -328,7 +316,7 @@ input.placeholder{
         color: #eb8d81;
         border-radius:5px;
         padding: 2px;
-        font-family: 'Fira Sans', sans-serif;
+       
         margin-right: 5px;
 }
 
@@ -352,7 +340,7 @@ input.placeholder{
 }
 .alert span{
    color:#ffffff;
-   font-family: 'Fira Sans', sans-serif;
+   
    font-weight: 300;
    font-style: 21px;
     
