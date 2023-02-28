@@ -1,11 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background-color:#d1d1d1;
 }
 
 
+  
+   
+
+.back_all::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f9f9fd00;
+  
+}
+.back_all::-webkit-scrollbar-thumb {
+    background-color: #35da50ca;
+    border-radius:5px;
+}
+.back_all::-webkit-scrollbar-track {
+    margin: 20px   auto;
+
+    
+    height: 90%;
+    border-radius: 10px;
+   
+  }
 #form{
+    max-width: 885px;
     display: flex;
-    justify-content: centergit;
+    justify-content: start;
+    position: fixed;
+    margin: 0 auto;
+    z-index: 10;
+    
 }
 .back_all{
     height: 850px;
@@ -15,9 +44,9 @@ body{
     margin: 50px auto 0;
     background: #212121;
     border-radius:20px;
-   position: relative;
-   overflow: hidden;
-   box-shadow: 0 0 21px 4px black;
+    position: relative;
+    overflow-y: scroll;
+    box-shadow: 0 0 21px 4px black;
 
 
    
@@ -41,29 +70,48 @@ body{
     margin: 0 auto;
     border-bottom:1px solid #48480f  ;
 }
+.modal_input
+{
+    padding: 15px 25px;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    border:1px solid #e3e3e3;
+    border-radius:10px;
+    position: absolute;
+    right: -595px;
+    z-index: 10;
+    width: 550px;
+    background-color: #fafad5;
+}
 .input_box{
     margin: 25px auto;
     width: 100%;
     display: flex;
     justify-content: center;
-    position: relative;
+   
 
 }
-#input{
+input{
     position: relative;
     width: 300px;
     height: 40px;
-    
-    margin-top: 20px;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
-    font-size: 21px;
     outline:none;
     z-index: 3;
     border-radius:10px;
     border-color:rgba(0, 0, 0, 0);
     background-color:rgba(0, 0, 0, 0);
-    color:#dadada;
+    color:#000000;
+}
+#inputTitle{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+}
+#inputDesc{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
 }
 
 .box1{
@@ -78,66 +126,103 @@ body{
     filter: blur(1px);
 
 }
-.btn_task{
+.btn_open{
     font-family: 'Fira Sans', sans-serif;
-    background-color: #6161613b;
-    width: 50px;
+    font-weight: 400;
+    background-color: #35da50ca;
+    padding: 12px 25px;
+    width: 160px;
     height: 50px;
     color: rgb(255, 255, 255);
     border-radius: 10px;
-    border: 1px solid #ffffffd2;
-    border-radius:50%;
     cursor: pointer;
     transition: all 0.9s;
     position: relative;
     z-index: 3;
     font-size: 20px;
-   display: flex;
-   justify-content: center;
-   align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     box-sizing: border-box;
     backdrop-filter: blur(15px);
    
 }
-button
-{
-    background-color:#212121;
-    border: none;
-}
-.btn_task:hover{
+.btn_del{
     font-family: 'Fira Sans', sans-serif;
-    background-color: #6161613b;
-    
+    font-weight: 400;
+    background-color: #da4035ca;
+    padding: 12px 25px;
+    width: 140px;
+    height: 50px;
     color: rgb(255, 255, 255);
     border-radius: 10px;
-    border: 1px solid #dadada;
+    cursor: pointer;
+    transition: all 0.9s;
+    position: relative;
+    z-index: 3;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    box-sizing: border-box;
+    backdrop-filter: blur(15px);
+    margin-top: 10px;
+}
+button
+{
+    background-color:#1ed63c2e;
+    border: none;
+    color:rgb(0, 0, 0);
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    box-sizing:border-box;
+    height: 40px;
+    cursor: pointer;
+}
+.btn_open:hover{
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #23f446df;
+    
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    
     box-shadow:0 0 8px 1px    #ffffff;
     transition: all 0.9s;
+}
+.btn_open::before
+{
+    content:url(./images/pens.png);
+    margin-right: 5px;
 }
 .task_field
 
 {
-    margin: 0;
+    margin: 200px 0;
     padding: 0;
     padding-inline-start: 0;
     max-width: 950px;
     display: grid;
     justify-content: space-around;
     grid-template-columns:400px 400px ;
+    overflow-y: auto;
+   
+  
 
 }
+
 .task_item{
     box-sizing: border-box;
     padding: 5px 12px;
     display: grid;
     margin: 25px auto 10px;
-    height: 75px;
+    min-height: 75px;
     align-items:center;
     grid-template-columns: 300px 78px 10px;
     width: 100%;
     background-color: #383838;
     border-radius:10px;
- 
+    overflow-wrap: break-word;
     position: relative;
     z-index: 3;
     color: #ffffff;
