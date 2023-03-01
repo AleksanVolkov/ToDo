@@ -11,7 +11,7 @@
         box = document.querySelectorAll('.task_box'),
         btnOpen=document.querySelector('.btn_open'),
         btnDel=document.querySelector('.btn_del'),
-        button=document.querySelector('button'),
+        button=document.querySelector('#button'),
         modalInput=document.querySelector('.modal_input');
         
         
@@ -20,23 +20,25 @@
               
               const inputTitleValue = inputTitle.value;
               let inputDescValue = inputDesc.value;
-              // if(inputDescValue.length>40){
-              //   // inputDescValue=inputDescValue.slice(0,35);
-                
-              // }
-
+            
               if(inputTitleValue && inputDescValue ){
                 const li = document.createElement('li');
                 li.classList.add('task_item');
                 li.innerHTML=`
+                    <div class="dots">
+                      <span>...</span>
+                      <div class="menu">
+                        <div class="btn">edit</div>
+                        <div class="btn check">done</div>
+                        <div class="btn del">del</div>
+                      </div>
+                   
+                    </div>
                     <div class="text_block">
                           <div class="task_title">${inputTitleValue}</div>
                           <div class="task_descr">${inputDescValue}</div>
                     </div>
-                    <div class="task_item_btn">
-                      <div class="check">	&#10004</div>
-                      <div class="del">&#11198</div>
-                    </div>
+                    
   
                 `
                 taskField.append(li);
@@ -45,13 +47,9 @@
 
               inputTitle.value = '';
               inputDesc.value ='';
-              button.addEventListener('click',()=>{
-                
-                document.getElementById('inputTitle').placeholder ='add a title';
-                document.getElementById('inputDesc').placeholder ='add a discription';
-                modalInput.style.display='none';
-              })
-             
+
+
+              
 
               
               
@@ -59,18 +57,29 @@
 
 
         })
+
+
+        button.addEventListener('click',()=>{
+          modalInput.style.transform='translateX(-875px)';
+          document.getElementById('inputTitle').placeholder ='add a title';
+          document.getElementById('inputDesc').placeholder ='add a discription';
+         
+          
+        })
+       
         contener.addEventListener('click', done);
         contener.addEventListener('click', delite);
         btnOpen.addEventListener('click',openInput);
-        btnDel.addEventListener('click',closeAll);
+        
        
         function openInput(){
-          modalInput.style.display='flex';
+          modalInput.style.transform='translateX(0)';
         };
         function closeAll(){
           const allLi = document.querySelectorAll('li');
           allLi.forEach(item=>{
-            item.style.display='none'
+            item.style.transform='translateX(-875px)';
+           
           });
           
         };
