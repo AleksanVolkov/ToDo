@@ -12,7 +12,10 @@
         btnOpen=document.querySelector('.btn_open'),
         btnDel=document.querySelector('.btn_del'),
         button=document.querySelector('#button'),
-        modalInput=document.querySelector('.modal_input');
+        modalInput=document.querySelector('.modal_input'),
+       
+        dots= document.querySelector('#dots');
+        
         
         
         contener.addEventListener('submit', (e)=>{
@@ -21,14 +24,20 @@
               const inputTitleValue = inputTitle.value;
               let inputDescValue = inputDesc.value;
             
+              
               if(inputTitleValue && inputDescValue ){
                 const li = document.createElement('li');
                 li.classList.add('task_item');
                 li.innerHTML=`
-                    <div class="dots">
-                      <span>...</span>
-                      <div class="menu">
-                        <div class="btn">edit</div>
+                    <div id="dots">
+                      <span class="dots">...</span>
+                      <div  class="edit_field ">
+                        <input id="input_titleedit" class="input_edit"></input>
+                        <input id="input_descredit" class="input_edit"></input>
+                        <div class="btn editDone">del</div>
+                      </div>
+                      <div  class="dots_menu">
+                        <div class="btn edit">edit</div>
                         <div class="btn check">done</div>
                         <div class="btn del">del</div>
                       </div>
@@ -42,8 +51,9 @@
   
                 `
                 taskField.append(li);
+               
               }
-              
+            
 
               inputTitle.value = '';
               inputDesc.value ='';
@@ -69,6 +79,26 @@
        
         contener.addEventListener('click', done);
         contener.addEventListener('click', delite);
+        
+
+        contener.addEventListener('click', (e)=>{
+          const target = e.target;
+          if(target.classList.contains('dots')){
+            const dotsMenu = document.querySelectorAll('.dots');
+            dotsMenu.forEach((item,i)=>{
+              if(item==target){
+               
+                openMenu(i);
+
+              }
+            });
+          }
+        });
+
+        contener.addEventListener('click', edit);
+
+
+
         btnOpen.addEventListener('click',openInput);
         
        
@@ -83,7 +113,21 @@
           });
           
         };
-        
+
+
+        function edit(e){
+          const target = e.target;
+          
+          if(target.classList.contains('edit')){
+            menuArr.forEach(item=>{
+              item.classList.remove('open')
+            })
+
+
+            
+          }
+        }
+
 
         function done(e){
           const target = e.target;
@@ -104,7 +148,23 @@
           }
         }
 
+        let menuArr;
 
+        function openMenu(index){
+          
+          menuArr = document.querySelectorAll('.dots_menu');
+
+          menuArr.forEach((item,i)=>{
+            if(i==index){
+              item.classList.toggle('open')
+            }
+          })
+          
+        }
+         
+        
+
+ 
 
 
 
