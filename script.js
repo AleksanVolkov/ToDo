@@ -13,29 +13,28 @@
         btnDel=document.querySelector('.btn_del'),
         button=document.querySelector('#button'),
         modalInput=document.querySelector('.modal_input'),
-       
-        dots= document.querySelector('#dots');
+        dots= document.querySelector('#dots'),
+        editDone= document.querySelector('#editDone');
         
         
         
         contener.addEventListener('submit', (e)=>{
               e.preventDefault();  
               
-              const inputTitleValue = inputTitle.value;
+              let inputTitleValue = inputTitle.value;
+             
               let inputDescValue = inputDesc.value;
-            
+
+             
               
+             
               if(inputTitleValue && inputDescValue ){
                 const li = document.createElement('li');
                 li.classList.add('task_item');
                 li.innerHTML=`
                     <div id="dots">
                       <span class="dots">...</span>
-                      <div  class="edit_field ">
-                        <input id="input_titleedit" class="input_edit"></input>
-                        <input id="input_descredit" class="input_edit"></input>
-                        <div class="btn editDone">del</div>
-                      </div>
+                      
                       <div  class="dots_menu">
                         <div class="btn edit">edit</div>
                         <div class="btn check">done</div>
@@ -51,7 +50,20 @@
   
                 `
                 taskField.append(li);
-               
+                
+                const set = document.createElement('div');
+                set.classList.add('edit_back');
+                set.innerHTML=`
+
+                <div  class="edit_field ">
+                <input id="input_titleedit" class="input_edit" value="${inputTitleValue}"></input>
+                <textarea id="input_descredit" class="input_edit" type="text"  value="">${inputDescValue}</textarea>
+                <div id="editDone" class="btn editDone">edit</div>
+                  </div>
+
+                `
+
+                contener.append(set)
               }
             
 
@@ -64,7 +76,7 @@
               
               
 
-
+              
 
         })
 
@@ -95,12 +107,9 @@
           }
         });
 
-        contener.addEventListener('click', edit);
-
-
-
+        // contener.addEventListener('click', edit);
         btnOpen.addEventListener('click',openInput);
-        
+       
        
         function openInput(){
           modalInput.style.transform='translateX(0)';
@@ -115,18 +124,18 @@
         };
 
 
-        function edit(e){
-          const target = e.target;
-          
-          if(target.classList.contains('edit')){
-            menuArr.forEach(item=>{
-              item.classList.remove('open')
-            })
+        // function edit(e){
+        //   const target = e.target;
+         
+        //   if(target.classList.contains('edit')){
+        //     menuArr.forEach(item=>{
+        //       item.classList.remove('open')
+        //     })
 
 
             
-          }
-        }
+        //   }
+        // }
 
 
         function done(e){
@@ -161,9 +170,50 @@
           })
           
         }
-         
         
 
+
+        
+        contener.addEventListener('click',(e)=>{
+          const target = e.target;
+
+          if(target.classList.contains('edit')){
+                menuArr.forEach(item=>{
+                 item.classList.remove('open')
+               })
+
+               const editBtn= document.querySelectorAll('.edit');
+               editBtn.forEach((item,i)=>{
+                if(item==target){
+                  openEdit(i);
+                }
+               })
+               
+              }
+
+          if(target.classList.contains('editDone')){
+            const parrent = target.closest('.edit_back');
+            parrent.style.display = 'none'
+          }
+        });
+       
+        
+        function openEdit (index){
+          const editBox= document.querySelectorAll('.edit_back');
+          const editPanel= document.querySelectorAll('.edit_field');
+          
+
+          editBox.forEach((item,i)=>{
+            if(i==index){
+              item.style.display = "block";
+            }
+          })
+          editPanel.forEach((item,i)=>{
+            if(i==index){
+              item.style.display = "block";
+            }
+          })
+        }
  
 
 
