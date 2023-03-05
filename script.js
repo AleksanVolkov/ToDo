@@ -13,8 +13,8 @@
         btnDel=document.querySelector('.btn_del'),
         button=document.querySelector('#button'),
         modalInput=document.querySelector('.modal_input'),
-        dots= document.querySelector('#dots'),
-        editDone= document.querySelector('#editDone');
+        dots= document.querySelector('#dots');
+        
         
         
         
@@ -70,7 +70,7 @@
               inputTitle.value = '';
               inputDesc.value ='';
 
-
+              
               
 
               
@@ -107,7 +107,7 @@
           }
         });
 
-        // contener.addEventListener('click', edit);
+       
         btnOpen.addEventListener('click',openInput);
        
        
@@ -124,18 +124,7 @@
         };
 
 
-        // function edit(e){
-        //   const target = e.target;
-         
-        //   if(target.classList.contains('edit')){
-        //     menuArr.forEach(item=>{
-        //       item.classList.remove('open')
-        //     })
-
-
-            
-        //   }
-        // }
+   
 
 
         function done(e){
@@ -188,20 +177,48 @@
                   openEdit(i);
                 }
                })
+
                
-              }
+        
+            }
+               
+         
 
           if(target.classList.contains('editDone')){
+            
             const parrent = target.closest('.edit_back');
-            parrent.style.display = 'none'
+            parrent.style.display = 'none';
+         
+            
+        
+           
           }
+          
         });
        
         
         function openEdit (index){
           const editBox= document.querySelectorAll('.edit_back');
           const editPanel= document.querySelectorAll('.edit_field');
+          const editDone= document.querySelectorAll('#editDone');
+
+         
+
+          editDone.forEach(item=>{
+            item.addEventListener('click', (e)=>{
+              
+              editDone.forEach((item,i)=>{
+               
+                if(e.target == item){
+                  console.log('ok')
+                  editTask(i)
+                }
+              })
+            })
+          })
           
+          
+       
 
           editBox.forEach((item,i)=>{
             if(i==index){
@@ -213,8 +230,54 @@
               item.style.display = "block";
             }
           })
+          return editDone
         }
  
+
+
+        function editTask(index){
+       
+
+          const inputTitleedit=document.querySelectorAll('#input_titleedit');
+          const inputDescredit=document.querySelectorAll('#input_descredit');
+          
+          
+           
+          inputTitleedit.forEach(item=>{
+            console.log(item.value)
+            const taskTitle = document.querySelectorAll('.task_title');
+              taskTitle.forEach((items,i)=>{
+                if(i==index){
+                  items.textContent=item.value
+                  inputTitleValue=item.value
+                  
+                }
+              })
+          })
+             
+
+          inputDescredit.forEach(item=>{
+            console.log(item.value)
+            const taskTitle = document.querySelectorAll('.task_descr');
+              taskTitle.forEach((items,i)=>{
+                if(i==index){
+                  items.textContent=item.value
+                }
+              })
+          })
+             
+             
+
+              
+             
+             
+           
+            
+          
+
+    
+         
+        }
 
 
 
