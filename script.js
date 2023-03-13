@@ -22,7 +22,7 @@
               e.preventDefault();  
               
               let inputTitleValue = inputTitle.value;
-             
+              
               let inputDescValue = inputDesc.value;
 
              
@@ -69,7 +69,7 @@
 
               inputTitle.value = '';
               inputDesc.value ='';
-
+             
               
               
 
@@ -236,34 +236,46 @@
 
 
         function editTask(index){
-       
-
+          
           const inputTitleedit=document.querySelectorAll('#input_titleedit');
+        
           const inputDescredit=document.querySelectorAll('#input_descredit');
           
           
            
-          inputTitleedit.forEach(item=>{
-            console.log(item.value)
-            const taskTitle = document.querySelectorAll('.task_title');
+          inputTitleedit.forEach((item,i)=>{
+            if(i==index ){
+              const taskTitle = document.querySelectorAll('.task_title');
               taskTitle.forEach((items,i)=>{
-                if(i==index){
-                  items.textContent=item.value
-                  inputTitleValue=item.value
-                  
+                if(i==index ){
+                  items.textContent=item.value;
+                 
                 }
+                  
+                
               })
+             
+              
+            }
+         
           })
              
 
-          inputDescredit.forEach(item=>{
-            console.log(item.value)
-            const taskTitle = document.querySelectorAll('.task_descr');
-              taskTitle.forEach((items,i)=>{
-                if(i==index){
-                  items.textContent=item.value
+          inputDescredit.forEach((item,i)=>{
+            
+            if(i==index ){
+              const taskDesk = document.querySelectorAll('.task_descr');
+              taskDesk.forEach((items,i)=>{
+                if(i==index ){
+                  items.textContent=item.value;
+                 
                 }
+                  
+                
               })
+             
+              
+            }
           })
              
              
