@@ -8,7 +8,7 @@ body{
 }
 
   
-   
+
 
 .back_all::-webkit-scrollbar {
     width: 10px;
@@ -27,6 +27,22 @@ body{
     border-radius: 10px;
    
   }
+
+.start{
+    position: absolute;
+    right: 52px;
+    top: 66px;
+    padding: 10px 15px;
+    width: 160px;
+    height: 70px;
+    border: 1px solid #e3eabc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #e3eabc7a;
+    opacity: 0;
+    transition: all 0.7s;
+}
 #form{
     width: 885px;
     display: flex;
@@ -322,6 +338,7 @@ input.placeholder{
 
     background-color:#1ed63c2e;
     text-decoration: line-through;
+    color: #9999997d;
 }
 
 

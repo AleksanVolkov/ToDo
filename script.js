@@ -1,6 +1,9 @@
  'use strict';
 
 
+
+
+
  const  contener = document.querySelector('.contener'),
         inputTitle = document.querySelector('#inputTitle'),
         inputDesc = document.querySelector('#inputDesc'),
@@ -13,10 +16,29 @@
         btnDel=document.querySelector('.btn_del'),
         button=document.querySelector('#button'),
         modalInput=document.querySelector('.modal_input'),
-        dots= document.querySelector('#dots');
+        dots= document.querySelector('#dots'),
+        start= document.querySelector('.start');
+        
+        const tasks = [];
+       
         
         
-        
+        window.addEventListener('DOMContentLoaded',()=>{
+          start.style.opacity= '10';
+          start.style.transition= 'all 2.5s';
+          
+          function close(){
+            start.style.opacity= '0';
+            start.style.transition= 'all 2.5s';
+          }
+
+          const closeStart = setTimeout(close,3000);
+
+
+          if(localStorage.getItem('tasks')){
+            taskField.innerHTML = localStorage.getItem('tasks');
+          }
+        })
         
         contener.addEventListener('submit', (e)=>{
               e.preventDefault();  
@@ -50,6 +72,10 @@
   
                 `
                 taskField.append(li);
+                tasks.push(li);
+                
+                
+               
                 
                 const set = document.createElement('div');
                 set.classList.add('edit_back');
@@ -73,7 +99,7 @@
               
               
 
-              
+              saveHTML();
               
 
               
@@ -97,6 +123,7 @@
           const target = e.target;
           if(target.classList.contains('dots')){
             const dotsMenu = document.querySelectorAll('.dots');
+            
             dotsMenu.forEach((item,i)=>{
               if(item==target){
                
@@ -124,7 +151,7 @@
         };
 
 
-   
+        
 
 
         function done(e){
@@ -134,6 +161,7 @@
             const checkOk = target.closest('.task_item');
             checkOk.classList.toggle('done')
           }
+          saveHTML();
         }
 
 
@@ -144,6 +172,7 @@
               const delParrent = target.closest('.task_item');
               delParrent.classList.add('none');
           }
+          saveHTML();
         }
 
         let menuArr;
@@ -157,6 +186,7 @@
               item.classList.toggle('open')
             }
           })
+          saveHTML();
           
         }
         
@@ -172,6 +202,7 @@
                })
 
                const editBtn= document.querySelectorAll('.edit');
+               console.log(editBtn)
                editBtn.forEach((item,i)=>{
                 if(item==target){
                   openEdit(i);
@@ -230,7 +261,8 @@
               item.style.display = "block";
             }
           })
-          return editDone
+          saveHTML();
+          
         }
  
 
@@ -280,7 +312,7 @@
              
              
 
-              
+          saveHTML();
              
              
            
@@ -291,6 +323,15 @@
          
         }
 
+
+        function saveHTML(){
+          localStorage.setItem('tasks', taskField.innerHTML);
+          
+        }
+       
+
+        
+       
 
 
 
