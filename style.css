@@ -406,12 +406,12 @@ input.placeholder{
     position: absolute;
     box-shadow: 0 0 16px 1px rgb(193 193 193 / 71%);
     z-index: 10;
-    left: 300px;
-    top: 270px;
+    left: 0;
+    top: 0;
     padding: 7px 12px;
-    width: 450px;
-    height: 270px;
-    background-color: #ebecc0;
+    width: 426px;
+    height: 100%;
+    background-color: #ecc2c0;
     border-radius: 5px;
 }
 
@@ -420,7 +420,7 @@ input.placeholder{
     font-size: 17px;
     background-color: #ffffffc4;
     margin-bottom: 10px;
-    margin-top: 15px;
+    
     border-radius: 5px;
     
     white-space: normal;
@@ -432,31 +432,34 @@ input.placeholder{
 {
     padding: 15px;
     width: 350px;
-    height: 60px;
+    height: 21px;
 }
 #input_descredit
 {
-    min-width: 350px;
-    max-width: 450px;
+    min-width: 351px;
+    max-width: 60px;
     padding: 15px;
-    max-height: 110px;
-    min-height: 80px;
+    max-height: 45%;
     border: 1px solid #f0f0f098;
     outline: none;
+    
 }
 
 .editDone {
+    position: absolute;
     font-size: 17px;
     background-color: #bab9b9;
     padding: 5px 25px;
     color: black;
     border: 1px solid white;
-    width: 60px;
+    width: 30px;
     height: 30px;
     text-align: center;
     transition: ease-in-out 0.4s;
     border-radius: 5px;
     cursor: pointer;
+    right: 3px;
+    top: 6px;
 
 }
 

@@ -8,6 +8,7 @@
         inputTitle = document.querySelector('#inputTitle'),
         inputDesc = document.querySelector('#inputDesc'),
         taskField = document.querySelector('.task_field'),
+        backAll= document.querySelector('.back_all'),
         alert= document.querySelector('.alert'),
         check=document.querySelector('.check'),
         del=document.querySelectorAll('.del'),
@@ -36,16 +37,19 @@
 
 
           if(localStorage.getItem('tasks')){
+            
             taskField.innerHTML = localStorage.getItem('tasks');
+           
+          
           }
         })
+
         
         contener.addEventListener('submit', (e)=>{
               e.preventDefault();  
               
-              let inputTitleValue = inputTitle.value;
-              
-              let inputDescValue = inputDesc.value;
+               let inputTitleValue = inputTitle.value;
+               let inputDescValue = inputDesc.value;
 
              
               
@@ -82,14 +86,16 @@
                 set.innerHTML=`
 
                 <div  class="edit_field ">
-                <input id="input_titleedit" class="input_edit" value="${inputTitleValue}"></input>
-                <textarea id="input_descredit" class="input_edit" type="text"  value="">${inputDescValue}</textarea>
-                <div id="editDone" class="btn editDone">edit</div>
-                  </div>
+                  <input id="input_titleedit" class="input_edit" value="${''}"></input>
+                  <textarea id="input_descredit" class="input_edit" type="text"  value="">${''}</textarea>
+                  <div id="editDone" class="btn editDone">edit</div>
+                </div>
 
                 `
-
-                contener.append(set)
+               
+                li.append(set)
+                
+           
               }
             
 
@@ -99,7 +105,7 @@
               
               
 
-              saveHTML();
+              
               
 
               
@@ -202,7 +208,7 @@
                })
 
                const editBtn= document.querySelectorAll('.edit');
-               console.log(editBtn)
+             
                editBtn.forEach((item,i)=>{
                 if(item==target){
                   openEdit(i);
@@ -221,7 +227,7 @@
             parrent.style.display = 'none';
          
             
-        
+            saveHTML();
            
           }
           
@@ -241,8 +247,9 @@
               editDone.forEach((item,i)=>{
                
                 if(e.target == item){
-                  console.log('ok')
-                  editTask(i)
+                  
+                  editTask(i);
+                  
                 }
               })
             })
@@ -280,8 +287,10 @@
               const taskTitle = document.querySelectorAll('.task_title');
               taskTitle.forEach((items,i)=>{
                 if(i==index ){
-                  items.textContent=item.value;
-                 
+                  if(item.value!=''){
+                    items.textContent=item.value;}
+                  
+                  saveHTML();
                 }
                   
                 
@@ -299,8 +308,10 @@
               const taskDesk = document.querySelectorAll('.task_descr');
               taskDesk.forEach((items,i)=>{
                 if(i==index ){
-                  items.textContent=item.value;
-                 
+                  if(item.value!=''){
+                    items.textContent=item.value;}
+                  
+                  saveHTML();
                 }
                   
                 
@@ -321,6 +332,7 @@
 
     
          
+          
         }
 
 
